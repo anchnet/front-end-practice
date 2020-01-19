@@ -71,7 +71,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/anchnet" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/anchnet/front-end-practice" title="github"><i class="icon-github"></i></a>
 		        
 			</div>
 		</nav>
@@ -104,7 +104,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/anchnet" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/anchnet/front-end-practice" title="github"><i class="icon-github"></i></a>
 			        
 				</div>
 			</nav>
@@ -129,6 +129,91 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-微信功能可行性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/%E5%BE%AE%E4%BF%A1%E5%8A%9F%E8%83%BD%E5%8F%AF%E8%A1%8C%E6%80%A7/">微信功能可行性</a>
+    </h1>
+  
+
+        
+        <a href="/2020/%E5%BE%AE%E4%BF%A1%E5%8A%9F%E8%83%BD%E5%8F%AF%E8%A1%8C%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2020-01-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p><strong>问：</strong>webview 可否嵌入第三方网页？<br><strong>答：</strong>不可以。webview 嵌入的网页需要将域名加到小程序管理后台的业务域名里，业务域名的验证方式是在域名根目录下添加指定的验证文件，出于安全方面考虑不能将第三方域名加到业务域名里。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<p><strong>问：</strong>webview 可否使用折中方式例如 iframe 嵌入第三方网页？<br><strong>答：</strong>不可以。webview 嵌入的网页以及该页面 iframe 嵌入的网页域名都必须配置在业务域名里才可以访问。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<p><strong>问：</strong>小程序跳转到小程序是否有限制？<br><strong>答：</strong>没有限制。只要有目标小程序的 AppID 即可进行小程序间的跳转。<a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/miniprogram-navigate/wx.navigateToMiniProgram.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<p><strong>问：</strong>小程序可否调起 App？<br><strong>答：</strong>小程序不能主动调起 App，只有少数场景下可以，具体见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/launchApp.html" target="_blank" rel="noopener">【相关文档】</a>。</p>
+<h2 id="公众号"><a href="#公众号" class="headerlink" title="公众号"></a>公众号</h2><p><strong>问：</strong>自定义菜单能否编辑跳转到外部的链接？<br><strong>答：</strong>认证后可以，未认证订阅号不可以。<a href="https://kf.qq.com/faq/120911VrYVrA150212ENnyqM.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ol>
+<li>如有小程序跳转到第三方应用的需求，不可使用嵌入 H5 或调起 App 的方式，建议引导至跳转第三方小程序的方式。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">公众号</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/%E5%BE%AE%E4%BF%A1%E5%8A%9F%E8%83%BD%E5%8F%AF%E8%A1%8C%E6%80%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-前端代码规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -170,7 +255,6 @@
 <li><a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git使用简易指南</a></li>
 <li><a href="https://github.com/521xueweihan/git-tips" target="_blank" rel="noopener">git-tips</a></li>
 </ol>
-<p><strong><em>by 小打</em></strong></p>
 
       
 
@@ -310,6 +394,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
               </li>
             
             <div class="clearfix"></div>
