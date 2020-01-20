@@ -130,6 +130,158 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-富文本编辑器导入HTML的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">富文本编辑器导入HTML的解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2020-01-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当你遇到 “富文本编辑器需支持导入HTML” 这个需求时，你会如何处理？</p>
+<blockquote>
+<p>我想，大多数人遇到这个需求，一定会觉得这也太简单了把。分为以下几步，不就可以完美解决吗？</p>
+<ol>
+<li>找个熟悉的富文本编辑器，且编辑器支持HTML导入</li>
+<li>着手代码开发，轻松调用富文本编辑器自带API，实现HTML插入。</li>
+<li>美滋滋等待项目上线</li>
+</ol>
+</blockquote>
+<p>直到PM突然联系你，客户反馈落差感很大，你会发现…</p>
+<ul>
+<li>买家秀01.png   <code>VS</code>   卖家秀01.png</li>
+</ul>
+<div>
+    <img src="/images/editor/default-01.png" width="300px" alt="买家秀01" style="box-shadow: 0 0 4px 0 rgba(0,0,0,.2);" />
+    <span style="padding: 0 2em;">VS</span>
+    <img src="/images/editor/question-01.png" width = "300px" alt="卖家秀01" style="box-shadow: 0 0 4px 0 rgba(0,0,0,.2);"/>
+</div>
+<br/>
+
+<ul>
+<li>买家秀02.png   <code>VS</code>   卖家秀02.png</li>
+</ul>
+<div>
+    <img src="/images/editor/default-02.jpg" width="300px" alt="买家秀02" style="box-shadow: 0 0 4px 0 rgba(0,0,0,.2);"/>
+    <span style="padding: 0 2em;">VS</span>
+    <img src="/images/editor/question-02.jpg" width = "300px" alt="卖家秀02" style="box-shadow: 0 0 4px 0 rgba(0,0,0,.2);"/>
+</div>
+<br/>
+
+<ul>
+<li><p>买家秀02.png   <code>VS</code>   卖家秀02.png<div></p>
+  <img src="/images/editor/default-03.png" width="300px" alt="买家秀03" style="box-shadow: 0 0 4px 0 rgba(0,0,0,.2);"/>
+  <span style="padding: 0 2em;">VS</span>
+  <img src="/images/editor/question-03.png" width = "300px" alt="卖家秀03" style="box-shadow: 0 0 4px 0 rgba(0,0,0,.2);"/>
+</div>
+</li>
+<li><p>买家秀+N.png   <code>VS</code>   卖家秀+N.png<br>亲！简直无法直视呀~</p>
+</li>
+</ul>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><blockquote>
+<p>事出必有其因，这个Bug也太妖孽了把~看我慢慢解析你。<br>在不断的自测、实践中，我发现了以下问题：</p>
+<ol>
+<li>存在图片放大、变形问题（未设置最大宽度）。</li>
+<li>存在样式丢失问题（说明源码中不含特殊样式）。</li>
+<li>在导入的过程中如果HTML的空格、换行有变化，也会导致样式变化。（参考买家秀02，说明css的写法存在一定兼容性问题）</li>
+<li>直接访问HTML源码显示错乱（自家编辑器不含特殊处理，说明HTML本身就有问题）。</li>
+<li><code>买家秀</code> 效果来自135编辑器, <code>卖家秀</code>效果来自自家编辑器（tinymce插件）和解释器（前台）。</li>
+<li>HTML源码在<code>135编辑器</code>中显示ok， 在自家编辑器效果中以及解释器中显示错乱。</li>
+<li>PC和Mobile的效果差别很大（这是一个响应式的网页项目）。</li>
+<li>135编辑器是一个现有的编辑器产品， 无法在自家项目中使用。</li>
+<li>客户主要使用135编辑器</li>
+</ol>
+</blockquote>
+<p>由此得知，出现这样的问题是因为其他编辑器在导入我们编辑器的过程中，出现了兼容性问题。<br>这个兼容性问题出在第三方，在编辑HTML的时候作出了特殊处理，且没有把源码保存在HTML中。</p>
+<h2 id="问题修复"><a href="#问题修复" class="headerlink" title="问题修复"></a>问题修复</h2><blockquote>
+<p>虽然问题出在第三方，但是我们必须要解决。因为这严重影响了用户体验。<br>用户主要使用135编辑器，所以我们以135编辑器为标杆做了相应的解决方案。<br>解决方案如下：</p>
+<ol>
+<li>找出第三方编辑器（135编辑器）作出的特殊处理（修复样式丢失问题）</li>
+<li>压缩HTML代码，去除多余空格（修复糟糕的CSS的写法导致的兼容性问题）。</li>
+<li>编辑器的容器大小和135编辑器的容器大小保持一致（防止容器过大导致的变形）。</li>
+<li>设置容器最大宽度（防止溢出）。</li>
+</ol>
+</blockquote>
+<h2 id="实施过程"><a href="#实施过程" class="headerlink" title="实施过程"></a>实施过程</h2><blockquote>
+<ol>
+<li>将第三方编辑器（135编辑器）使用的CSS外部样式表下载下来，放入自家编辑器（后台）以及解释器（前台）中。</li>
+<li>在编辑器（后台），压缩导入的HTML代码，去除多余空格</li>
+<li>编辑器的容器（后台）大小、解释器的容器（前台）大小和135编辑器的容器大小保持一致</li>
+<li>设置容器最大宽度, 图片最大宽度</li>
+<li>让PM找客户提供所有的HTML素材，内部测试，平稳过渡</li>
+</ol>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>这个问题看似是一个简单的HTML导入的功能，其实是兼容第三方平台导入的功能。</li>
+<li>因为135编辑器是一个现有的、不断维护的产品，我们也需要定期去更新自己的平台。</li>
+<li>遇到问题不要慌，能理清问题本身，就离解决问题不远了。</li>
+<li>留给大家一个问题，如何更好的提升用户满意度？</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">富文本编辑器导入HTML的解决方案</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-微信小程序及公众号可行性调查" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -397,15 +549,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">富文本编辑器导入HTML的解决方案</a>
               </li>
              
               <li class="article-tag-list-item">
