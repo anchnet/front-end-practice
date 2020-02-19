@@ -17,6 +17,9 @@
   hexo server
   # 或
   npm run server
+
+  # 新建文章
+  hexo new 'title'
 ```
 
 4. 发布流程
