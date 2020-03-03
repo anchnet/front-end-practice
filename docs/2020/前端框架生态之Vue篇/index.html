@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 安畅前端实践</title>
+  <title>前端框架生态之Vue篇 | 安畅前端实践</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="安畅前端实践">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Post by 小打 VueVue 的使用方式主要有两种：a. 在 html 里引入 vue.js，简单直接，适合初学和 Demo，也适合在其它前端框架搭建的项目里局部使用 Vue。b. 通过 ES6 import 模块化引入，配合 Webpack 打包编译使用。这种方式更加工程化，适合大部分项目。早期的 Vue &#x2F; React 项目环境配置完全要自己实现，打包工具众多：Webpack &#x2F; Bro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端框架生态之Vue篇">
+<meta property="og:url" content="http://yoursite.com/2020/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E4%B9%8BVue%E7%AF%87/index.html">
 <meta property="og:site_name" content="安畅前端实践">
+<meta property="og:description" content="Post by 小打 VueVue 的使用方式主要有两种：a. 在 html 里引入 vue.js，简单直接，适合初学和 Demo，也适合在其它前端框架搭建的项目里局部使用 Vue。b. 通过 ES6 import 模块化引入，配合 Webpack 打包编译使用。这种方式更加工程化，适合大部分项目。早期的 Vue &#x2F; React 项目环境配置完全要自己实现，打包工具众多：Webpack &#x2F; Bro">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-03T08:51:47.224Z">
 <meta property="article:author" content="安畅前端实践">
+<meta property="article:tag" content="前端框架">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="安畅前端实践" type="application/atom+xml">
@@ -128,36 +134,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-前端框架生态之Vue篇" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E4%B9%8BVue%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2020-03-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E4%B9%8BVue%E7%AF%87/">前端框架生态之Vue篇</a>
+    <h1 class="article-title" itemprop="name">
+      前端框架生态之Vue篇
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E4%B9%8BVue%E7%AF%87/" class="archive-article-date">
+  	<time datetime="2020-03-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>Post by 小打</em></strong></p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue</a></h2><p>Vue 的使用方式主要有两种：<br>a. 在 html 里引入 vue.js，简单直接，适合初学和 Demo，也适合在其它前端框架搭建的项目里局部使用 Vue。<br>b. 通过 ES6 import 模块化引入，配合 Webpack 打包编译使用。这种方式更加工程化，适合大部分项目。早期的 Vue / React 项目环境配置完全要自己实现，打包工具众多：Webpack / Browserify / Rollup / Parcel。由于相关插件繁多且升级改动频繁，不少前端开发工程师快要被逼成前端配置工程师。</p>
+<h2 id="Vue-CLI（适合大部分项目）"><a href="#Vue-CLI（适合大部分项目）" class="headerlink" title="Vue CLI（适合大部分项目）"></a><a href="https://cli.vuejs.org/zh/" target="_blank" rel="noopener">Vue CLI</a>（适合大部分项目）</h2><p>Vue 官方指定的 Vue CLI 是一个集成了 Webpack 的基础前端框架（React 有 Create React App），环境配置方面已能满足大部分项目的需要，一定程度上解救了前端配置工程师。Vue CLI 2.x 版本把 Webpack 配置暴露在项目里，而 Vue CLI 3.x 把 Webpack 配置封装在 Vue CLI Service 内部后接受调用。一般来说，我们做技术选型应该用新不用旧，因为新技术因为着优化和维护；但 2.x 版本确实方便了我们根据项目需要对 Webpack 配置进行深度定制。</p>
+<h2 id="Vue-Router-VueX"><a href="#Vue-Router-VueX" class="headerlink" title="Vue Router / VueX"></a><a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">Vue Router</a> / <a href="https://vuex.vuejs.org/zh/guide/" target="_blank" rel="noopener">VueX</a></h2><p>Vue 官方指定的路由及状态管理插件，跟 React 生态动辄好几个类似插件（Flux / Redux / MobX）比起来少了选择和决定的烦恼。需要时在 Vue CLI 生成的项目里直接引入即可使用，无需额外配置，非常方便。</p>
+<h2 id="Element-UI-iView"><a href="#Element-UI-iView" class="headerlink" title="Element UI / iView"></a><a href="https://element.eleme.cn/" target="_blank" rel="noopener">Element UI</a> / <a href="http://iview.talkingdata.com/" target="_blank" rel="noopener">iView</a></h2><p>Vue 生态中使用人数最多的开源 UI 组件库，封装了许多常用组件，能满足大部分管理后台的需求（管理后台 UI 界面注重简洁易用）。自己开发 UI 组件库虽然可以更好地支持自定义需求，但会是很大的工作量，保持 bug 修复和文档更新更是一件困难的事。开源 UI 组件库的使用让开发者可以将更多时间花在业务逻辑而不是组件上。如果组件库提供的常用组件无法满足业务需求，则需要对相应组件做二次封装或全新开发。React 也有 Ant Design 等开源组件库。</p>
+<h2 id="Vue-Element-Admin（管理后台类型项目推荐使用）"><a href="#Vue-Element-Admin（管理后台类型项目推荐使用）" class="headerlink" title="Vue Element Admin（管理后台类型项目推荐使用）"></a><a href="https://panjiachen.github.io/vue-element-admin-site/zh/" target="_blank" rel="noopener">Vue Element Admin</a>（管理后台类型项目推荐使用）</h2><p>前台网页的界面和交互各式各样，但管理后台的界面和功能往往是类似的。这意味着前台网页开发能提炼的公共代码少，而管理后台开发能提炼的公共代码要多得多，因此管理后台模板是必然且必要的，它能提高管理后台的开发效率并且保证代码逻辑的规范和一致。Vue Admin Template 就是这样一个后台前端解决方案（React 有 React Admin），它内置了 i18n 国际化解决方案、动态路由、权限验证，提炼了典型的业务模型，提供了丰富的功能组件，在管理后台类型的项目开发中能提供有力的帮助。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -173,141 +183,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E7%94%9F%E6%80%81%E4%B9%8BVue%E7%AF%87/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2020-01-19T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">富文本编辑器导入HTML的解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">富文本编辑器导入HTML的解决方案</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">富文本编辑器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8A%E5%85%AC%E4%BC%97%E5%8F%B7%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%B0%83%E6%9F%A5/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8A%E5%85%AC%E4%BC%97%E5%8F%B7%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%B0%83%E6%9F%A5/">微信小程序及公众号可行性调查</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">公众号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2020-01-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">前端代码规范及操作指南</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码规范</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作指南</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -330,8 +305,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
