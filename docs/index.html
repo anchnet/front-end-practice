@@ -130,6 +130,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-微信小程序实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5/">微信小程序实践</a>
+    </h1>
+  
+
+        
+        <a href="/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
+  	<time datetime="2020-03-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>Post by 数转项目（何鑫辉、贾志敏、江俊臻）</em></strong></p>
+<h2 id="使用canvas生成图片-（目前功能较完善的canvas生成图片的插件）"><a href="#使用canvas生成图片-（目前功能较完善的canvas生成图片的插件）" class="headerlink" title="使用canvas生成图片 （目前功能较完善的canvas生成图片的插件）"></a><a href="https://github.com/Kujiale-Mobile/Painter" target="_blank" rel="noopener">使用canvas生成图片</a> （目前功能较完善的canvas生成图片的插件）</h2><blockquote>
+<p>原理：<br>1、使用API (wx.createCanvasContext) 创建 canvas 的绘图上下文 CanvasContext 对象。<br>2、确定 绘图上下文中 的描述（路径、变形、样式）。<br>3、使用 draw 方法画到 canvas 中。<br>4、在 draw 方法的回调中设置一个延时定时器（200ms 或 300ms，由于安卓和IOS的性能差异，若未设置定时器，在安卓手机上无法生成图片。即时在设置定时器的情况下，部分安卓手机仍然存在生成图片失败的情况，该问题是由于微信提供的API和手机性能等多方面原因导致，针对该问题有更好的解决方案的话欢迎补充。），在定时器的回调中使用 wx.canvasToTempFilePath 把当前画布指定区域的内容导出生成指定大小的图片（wx.canvasToTempFilePath的回调函数success中会返回生成后的图片的临时路径）。</p>
+</blockquote>
+<p>Tips：插件中使用的是wx.createCanvasContext创建 canvas 的绘图上下文，该API从基础库 2.9.0 开始停止维护。所以目前在使用该插件的时候，根据项目要求自行判断是否需要手动修改源代码。<br>    替换代码如下（可以有多个替换方式，这只是其中之一，欢迎补充）：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 插件中的代码</span><br><span class="line">const ctx &#x3D; wx.createCanvasContext(&#39;k-canvas&#39;, this);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 替换代码</span><br><span class="line">const query &#x3D; wx.createSelectorQuery().in(this)</span><br><span class="line">query.select(&#39;#canvas&#39;).context().exec((res) &#x3D;&gt; &#123;</span><br><span class="line">  const ctx &#x3D; res[0].context</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="基于Gulp4构建原生微信小程序"><a href="#基于Gulp4构建原生微信小程序" class="headerlink" title="基于Gulp4构建原生微信小程序"></a><a href="https://gitlab.51idc.com/hexh/native-miniprogram/tree/gulp4" target="_blank" rel="noopener">基于Gulp4构建原生微信小程序</a></h2><blockquote>
+<p>介绍：<br>1、该插件的初衷是为了通过渗透测试，小程序自带的js混淆未能达到预期的安全标准，所以我们在数转项目中通过gulp4，实现了对原生微信小程序更进一步的混淆和压缩（这种压缩模式会使包的体积变大，使用的时候需要注意小程序主包的大小）。<br>2、实现了初步的动态切换开发环境，动态编译区分不同环境的域名、appId等。<br>3、该插件中配的路径是基于我们公司github上原生小程序模板的路径，可以对照使用，或者自行修改。<br>4、持续优化中。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-前端框架生态之Vue篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -568,10 +638,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
@@ -580,19 +646,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作指南</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">富文本编辑器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">富文本编辑器</a>
               </li>
             
             <div class="clearfix"></div>
