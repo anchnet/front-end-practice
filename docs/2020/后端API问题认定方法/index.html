@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>后端API问题认定方法 | 安畅前端实践</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Post by 小打 Issue当前端项目调用后端 API 服务时发生异常往往会导致问题，这时前端同学的第一反应是去找后端同学反馈并推动解决。在找后端同学前，我想多问一个问题，你能认定这是后端 API 的问题吗？在前端代码发起一次真正的 AJAX 请求前，会有一系列前序步骤：选择 API 路径和请求方法，准备请求参数（URL 参数、Request Header、Request Body），准备回调">
+  <meta name="description" content="Post by 小打 Issue当前端项目调用后端 API 服务时发生异常往往会导致问题，这时前端同学的第一反应是去找后端同学反馈并推动解决。在找后端同学之前，我想问一个问题，你能认定这是后端 API 的问题吗？在前端代码发起一次真正的 AJAX 请求前，会有一系列前序步骤：选择 API 路径和请求方法，准备请求参数（URL 参数、Request Header、Request Body），准备回调">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后端API问题认定方法">
 <meta property="og:url" content="http://yoursite.com/2020/%E5%90%8E%E7%AB%AFAPI%E9%97%AE%E9%A2%98%E8%AE%A4%E5%AE%9A%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="安畅前端实践">
-<meta property="og:description" content="Post by 小打 Issue当前端项目调用后端 API 服务时发生异常往往会导致问题，这时前端同学的第一反应是去找后端同学反馈并推动解决。在找后端同学前，我想多问一个问题，你能认定这是后端 API 的问题吗？在前端代码发起一次真正的 AJAX 请求前，会有一系列前序步骤：选择 API 路径和请求方法，准备请求参数（URL 参数、Request Header、Request Body），准备回调">
+<meta property="og:description" content="Post by 小打 Issue当前端项目调用后端 API 服务时发生异常往往会导致问题，这时前端同学的第一反应是去找后端同学反馈并推动解决。在找后端同学之前，我想问一个问题，你能认定这是后端 API 的问题吗？在前端代码发起一次真正的 AJAX 请求前，会有一系列前序步骤：选择 API 路径和请求方法，准备请求参数（URL 参数、Request Header、Request Body），准备回调">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T06:49:57.285Z">
+<meta property="article:modified_time" content="2020-03-27T07:01:04.896Z">
 <meta property="article:author" content="安畅前端实践">
 <meta property="article:tag" content="后端API">
+<meta property="article:tag" content="问题认定">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="安畅前端实践" type="application/atom+xml">
@@ -154,8 +155,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong><em>Post by 小打</em></strong></p>
-<h2 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h2><p>当前端项目调用后端 API 服务时发生异常往往会导致问题，这时前端同学的第一反应是去找后端同学反馈并推动解决。在找后端同学前，我想多问一个问题，你能认定这是后端 API 的问题吗？在前端代码发起一次真正的 AJAX 请求前，会有一系列前序步骤：选择 API 路径和请求方法，准备请求参数（URL 参数、Request Header、Request Body），准备回调函数，最后发起请求。我们能否保证最终发出的 AJAX 请求与我们预想的一致？过程中有没有可能受到关联代码的影响？我们能否提供有力的证据证明前端代码处理正确并认定是后端 API 的问题？</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>综上所述，我们不能通过前端代码里发起的 AJAX 请求返回异常直接认定后端 API 存在问题，这样做是不专业的。在 Chrome 里，我们可以通过开发者调试工具的 Network Panel 选中某一个 AJAX 请求，仔细查看该请求的所有信息确保从前端代码里发出的请求跟我们预想的一致。如果不方便使用开发者调试工具，那么可以使用 Postman 之类的 API 调试工具，根据 API 说明文档加上需要的参数进行发送。只有这种方式发送的请求（单纯的一个请求、不受任何代码影响）发生接口返回跟预想不一致的情况才能认定是后端 API 的问题；假如 Postman 能请求成功而前端代码发起的请求返回错误，那么我们就该仔细检查前端代码是否存在问题了。</p>
+<h2 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h2><p>当前端项目调用后端 API 服务时发生异常往往会导致问题，这时前端同学的第一反应是去找后端同学反馈并推动解决。在找后端同学之前，我想问一个问题，你能认定这是后端 API 的问题吗？在前端代码发起一次真正的 AJAX 请求前，会有一系列前序步骤：选择 API 路径和请求方法，准备请求参数（URL 参数、Request Header、Request Body），准备回调函数，最后发起请求。我们能否保证最终发出的 AJAX 请求与我们预想的一致？过程中有没有可能受到关联代码的影响？我们能否提供有力的证据证明前端代码处理正确并认定是后端 API 的问题？</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>前端代码发起的 AJAX 请求可能受到关联代码的影响，不能直接认定返回异常是后端 API 的问题。在 Chrome 里，我们可以通过开发者调试工具的 Network Panel 选中某一个 AJAX 请求，仔细查看该请求的所有信息确保从前端代码发出的请求跟我们预想的一致。如果不方便使用开发者调试工具，那么可以使用 Postman 之类的 API 调试工具，按照 API 文档的要求加上需要的参数进行发送。只有这种方式发送的请求（单纯的一个请求、不受任何代码影响）发生接口返回跟预想不一致的情况才能认定是后端 API 的问题；假如 Postman 能请求成功而前端代码发起的请求返回错误，那么我们应该仔细检查前端代码是否存在问题了。</p>
 <p>当我们认定后端 API 存在问题后，出于认定依据的需要，可以对开发者调试工具进行截图，或者把 Postman 的 API 请求截图并保存下来。这样的依据在跟后端沟通 API 问题时无疑是更有力且更专业的。</p>
 
       
@@ -171,6 +172,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">后端API</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">问题认定</a>
         		</li>
       		
 		</ul>
@@ -397,6 +402,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">后端API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">问题认定</a>
               </li>
             
             <div class="clearfix"></div>
