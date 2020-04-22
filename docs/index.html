@@ -150,7 +150,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><em>Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等）</em></strong></p>
+        <p><strong><em>Post by 小打</em></strong><br><strong><em>Powered by 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等）</em></strong></p>
 <h1 id="【小程序】"><a href="#【小程序】" class="headerlink" title="【小程序】"></a>【小程序】</h1><h3 id="webview-可否嵌入第三方网页？"><a href="#webview-可否嵌入第三方网页？" class="headerlink" title="webview 可否嵌入第三方网页？"></a>webview 可否嵌入第三方网页？</h3><p>大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多数第三方网站域名不能添加到业务域名；请求域名的配置则相对简单，不需要验证，但有修改频率限制（每月最多修改5次）。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
 <h3 id="webview-可否使用-iframe-绕过业务域名限制嵌入第三方网页？"><a href="#webview-可否使用-iframe-绕过业务域名限制嵌入第三方网页？" class="headerlink" title="webview 可否使用 iframe 绕过业务域名限制嵌入第三方网页？"></a>webview 可否使用 iframe 绕过业务域名限制嵌入第三方网页？</h3><p>不可以。webview 嵌入的网页以及该页面 iframe 嵌入的网页都必须配置在业务域名里才能正常访问。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
 <h3 id="小程序可否调起浏览器打开网页？"><a href="#小程序可否调起浏览器打开网页？" class="headerlink" title="小程序可否调起浏览器打开网页？"></a>小程序可否调起浏览器打开网页？</h3><p>不可以。<a href="https://developers.weixin.qq.com/community/develop/doc/0002469210c02045f487739765b800?_at=1563690023255" target="_blank" rel="noopener">【相关帖子】</a></p>
