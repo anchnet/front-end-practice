@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>微信小程序及公众号可行性调查 | 安畅前端实践</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等） 【小程序】webview 可否嵌入第三方网页？大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多">
+  <meta name="description" content="Post by 小打Powered by 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等） 【小程序】webview 可否嵌入第三方网页？大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序及公众号可行性调查">
 <meta property="og:url" content="http://yoursite.com/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8A%E5%85%AC%E4%BC%97%E5%8F%B7%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%B0%83%E6%9F%A5/index.html">
 <meta property="og:site_name" content="安畅前端实践">
-<meta property="og:description" content="Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等） 【小程序】webview 可否嵌入第三方网页？大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多">
+<meta property="og:description" content="Post by 小打Powered by 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等） 【小程序】webview 可否嵌入第三方网页？大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-22T06:56:10.169Z">
+<meta property="article:modified_time" content="2020-04-22T06:59:55.322Z">
 <meta property="article:author" content="安畅前端实践">
 <meta property="article:tag" content="小程序">
 <meta property="article:tag" content="公众号">
@@ -154,7 +154,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><em>Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等）</em></strong></p>
+        <p><strong><em>Post by 小打</em></strong><br><strong><em>Powered by 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等）</em></strong></p>
 <h1 id="【小程序】"><a href="#【小程序】" class="headerlink" title="【小程序】"></a>【小程序】</h1><h3 id="webview-可否嵌入第三方网页？"><a href="#webview-可否嵌入第三方网页？" class="headerlink" title="webview 可否嵌入第三方网页？"></a>webview 可否嵌入第三方网页？</h3><p>大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多数第三方网站域名不能添加到业务域名；请求域名的配置则相对简单，不需要验证，但有修改频率限制（每月最多修改5次）。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
 <h3 id="webview-可否使用-iframe-绕过业务域名限制嵌入第三方网页？"><a href="#webview-可否使用-iframe-绕过业务域名限制嵌入第三方网页？" class="headerlink" title="webview 可否使用 iframe 绕过业务域名限制嵌入第三方网页？"></a>webview 可否使用 iframe 绕过业务域名限制嵌入第三方网页？</h3><p>不可以。webview 嵌入的网页以及该页面 iframe 嵌入的网页都必须配置在业务域名里才能正常访问。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
 <h3 id="小程序可否调起浏览器打开网页？"><a href="#小程序可否调起浏览器打开网页？" class="headerlink" title="小程序可否调起浏览器打开网页？"></a>小程序可否调起浏览器打开网页？</h3><p>不可以。<a href="https://developers.weixin.qq.com/community/develop/doc/0002469210c02045f487739765b800?_at=1563690023255" target="_blank" rel="noopener">【相关帖子】</a></p>
