@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>微信小程序及公众号可行性调查 | 安畅前端实践</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Post by 小打 小程序问：webview 可否嵌入第三方网页？答：不可以。webview 嵌入的网页需要将域名加到小程序管理后台的业务域名里，业务域名的验证方式是在域名根目录下添加指定的验证文件，出于安全方面考虑不能将第三方域名加到业务域名里。【相关文档】 问：webview 可否使用折中方式例如 iframe 嵌入第三方网页？答：不可以。webview 嵌入的网页以及该页面 iframe">
+  <meta name="description" content="Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等） 【小程序】webview 可否嵌入第三方网页？大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序及公众号可行性调查">
 <meta property="og:url" content="http://yoursite.com/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8A%E5%85%AC%E4%BC%97%E5%8F%B7%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%B0%83%E6%9F%A5/index.html">
 <meta property="og:site_name" content="安畅前端实践">
-<meta property="og:description" content="Post by 小打 小程序问：webview 可否嵌入第三方网页？答：不可以。webview 嵌入的网页需要将域名加到小程序管理后台的业务域名里，业务域名的验证方式是在域名根目录下添加指定的验证文件，出于安全方面考虑不能将第三方域名加到业务域名里。【相关文档】 问：webview 可否使用折中方式例如 iframe 嵌入第三方网页？答：不可以。webview 嵌入的网页以及该页面 iframe">
+<meta property="og:description" content="Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等） 【小程序】webview 可否嵌入第三方网页？大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-19T05:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T12:03:19.745Z">
+<meta property="article:published_time" content="2020-04-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-22T06:56:10.169Z">
 <meta property="article:author" content="安畅前端实践">
 <meta property="article:tag" content="小程序">
 <meta property="article:tag" content="公众号">
@@ -147,21 +147,26 @@
 
         
         <a href="/2020/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8A%E5%85%AC%E4%BC%97%E5%8F%B7%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%B0%83%E6%9F%A5/" class="archive-article-date">
-  	<time datetime="2020-01-19T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-19</time>
+  	<time datetime="2020-04-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><em>Post by 小打</em></strong></p>
-<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p><strong>问：</strong>webview 可否嵌入第三方网页？<br><strong>答：</strong>不可以。webview 嵌入的网页需要将域名加到小程序管理后台的业务域名里，业务域名的验证方式是在域名根目录下添加指定的验证文件，出于安全方面考虑不能将第三方域名加到业务域名里。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
-<p><strong>问：</strong>webview 可否使用折中方式例如 iframe 嵌入第三方网页？<br><strong>答：</strong>不可以。webview 嵌入的网页以及该页面 iframe 嵌入的网页域名都必须配置在业务域名里才可以访问。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
-<p><strong>问：</strong>小程序跳转到小程序是否有限制？<br><strong>答：</strong>没有限制。只要有目标小程序的 AppID 即可进行小程序间的跳转。<a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/miniprogram-navigate/wx.navigateToMiniProgram.html" target="_blank" rel="noopener">【相关文档】</a></p>
-<p><strong>问：</strong>小程序可否调起 App？<br><strong>答：</strong>小程序不能主动调起 App，只有少数场景下可以，具体见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/launchApp.html" target="_blank" rel="noopener">【相关文档】</a>。</p>
-<h2 id="公众号"><a href="#公众号" class="headerlink" title="公众号"></a>公众号</h2><p><strong>问：</strong>自定义菜单能否编辑跳转到外部的链接？<br><strong>答：</strong>认证后可以，未认证订阅号不可以。<a href="https://kf.qq.com/faq/120911VrYVrA150212ENnyqM.html" target="_blank" rel="noopener">【相关文档】</a></p>
-<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ol>
-<li>如有小程序跳转到第三方应用的需求，不可使用嵌入 H5 或调起 App 的方式，建议引导至跳转第三方小程序。</li>
+        <p><strong><em>Post by 小打 &amp; 有经验的小程序同学（余威、何鑫辉、贾志敏、江俊臻等）</em></strong></p>
+<h1 id="【小程序】"><a href="#【小程序】" class="headerlink" title="【小程序】"></a>【小程序】</h1><h3 id="webview-可否嵌入第三方网页？"><a href="#webview-可否嵌入第三方网页？" class="headerlink" title="webview 可否嵌入第三方网页？"></a>webview 可否嵌入第三方网页？</h3><p>大多数情况不可以。webview 嵌入的网页必须将该网页域名配置在小程序管理后台的业务域名里，网页上发起的所有请求（图片、CSS 文件、JS 文件、API 接口等）的域名都要配置在请求域名里。业务域名的验证方式是在域名根目录下放置指定的验证文件，出于安全方面考虑大多数第三方网站域名不能添加到业务域名；请求域名的配置则相对简单，不需要验证，但有修改频率限制（每月最多修改5次）。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<h3 id="webview-可否使用-iframe-绕过业务域名限制嵌入第三方网页？"><a href="#webview-可否使用-iframe-绕过业务域名限制嵌入第三方网页？" class="headerlink" title="webview 可否使用 iframe 绕过业务域名限制嵌入第三方网页？"></a>webview 可否使用 iframe 绕过业务域名限制嵌入第三方网页？</h3><p>不可以。webview 嵌入的网页以及该页面 iframe 嵌入的网页都必须配置在业务域名里才能正常访问。<a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<h3 id="小程序可否调起浏览器打开网页？"><a href="#小程序可否调起浏览器打开网页？" class="headerlink" title="小程序可否调起浏览器打开网页？"></a>小程序可否调起浏览器打开网页？</h3><p>不可以。<a href="https://developers.weixin.qq.com/community/develop/doc/0002469210c02045f487739765b800?_at=1563690023255" target="_blank" rel="noopener">【相关帖子】</a></p>
+<h3 id="小程序可否调起-App？"><a href="#小程序可否调起-App？" class="headerlink" title="小程序可否调起 App？"></a>小程序可否调起 App？</h3><p>小程序不能主动调起 App，只有少数场景下可以。<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/launchApp.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<h3 id="小程序跳转到小程序是否有限制？"><a href="#小程序跳转到小程序是否有限制？" class="headerlink" title="小程序跳转到小程序是否有限制？"></a>小程序跳转到小程序是否有限制？</h3><p>除了用户触发和确认、跳转的小程序最多数量（10个）以外，没有其它限制。只要有目标小程序的 AppID（可以在微信里点击小程序的更多信息查看）即可跳转到该小程序，配合路径等参数可指定跳转的页面（可能需要与目标小程序开发者沟通）。<a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/miniprogram-navigate/wx.navigateToMiniProgram.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<h3 id="小程序分享卡片可否禁止长按转发？"><a href="#小程序分享卡片可否禁止长按转发？" class="headerlink" title="小程序分享卡片可否禁止长按转发？"></a>小程序分享卡片可否禁止长按转发？</h3><p>目前 iOS 设备可以，安卓设备不可以。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.showShareMenu(&#123;</span><br><span class="line">  withShareTicket: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>通过 withShareTicket 参数可以在 iOS 设备屏蔽长按后发送给朋友的选项，但在安卓设备上不起作用。从微信开放社区技术运营专员（官方）的回复中可以了解到，withShareTicket 这个参数并非专门用来禁止长按转发，只是在 iOS 设备的功能实现上恰好产生了这个效果。因此我们不能依赖这个参数来实现这个功能。官方后续的调整计划是新增独立参数控制能否长按转发，但没有具体发布时间。<a href="https://developers.weixin.qq.com/community/develop/doc/0006ace762c9681bfff6296425b800" target="_blank" rel="noopener">【相关帖子】</a></p>
+<h3 id="小程序的审核时间要多久？"><a href="#小程序的审核时间要多久？" class="headerlink" title="小程序的审核时间要多久？"></a>小程序的审核时间要多久？</h3><p>参考过往经验，首次提交审核大约1-2工作日，后续发布审核大约1-2小时（工作时间）。提交审核时可选择审核加急，每年有3次机会。<a href="https://developers.weixin.qq.com/community/develop/doc/00002a9e18cdc0a04669375a95b001" target="_blank" rel="noopener">【相关文档】</a></p>
+<h1 id="【公众号】"><a href="#【公众号】" class="headerlink" title="【公众号】"></a>【公众号】</h1><h3 id="自定义菜单能否编辑跳转到外部的链接？"><a href="#自定义菜单能否编辑跳转到外部的链接？" class="headerlink" title="自定义菜单能否编辑跳转到外部的链接？"></a>自定义菜单能否编辑跳转到外部的链接？</h3><p>认证后可以，未认证订阅号不可以。<a href="https://kf.qq.com/faq/120911VrYVrA150212ENnyqM.html" target="_blank" rel="noopener">【相关文档】</a></p>
+<h1 id="【建议】"><a href="#【建议】" class="headerlink" title="【建议】"></a>【建议】</h1><ol>
+<li>如有小程序跳转到第三方应用的需求，不可使用调起浏览器或调起 App 的方式。嵌入 H5 的方式可行但配置域名相当繁琐，推荐跳转至第三方小程序的方式。</li>
 </ol>
 
       
@@ -250,18 +255,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E5%AF%BC%E5%85%A5HTML%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          富文本编辑器导入HTML的解决方案
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端代码规范及操作指南</div>
+    <a href="/2020/%E5%90%8E%E7%AB%AFAPI%E9%97%AE%E9%A2%98%E8%AE%A4%E5%AE%9A%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">后端API问题认定方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
