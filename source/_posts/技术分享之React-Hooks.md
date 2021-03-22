@@ -8,7 +8,7 @@ tags:
 ---
 
 分享者：何鑫辉
-分享链接：[React Hook](https://github.com/TwoNingMengTea/reack-hook/blob/master/react-hooks.md)
+分享链接：[深入浅出 React Hooks](https://github.com/TwoNingMengTea/reack-hook/blob/master/react-hooks.md)
 
 ### 一些感想 by 小打
 1. React Hooks 作为 React 较新的特性之一，带来的不仅仅是新的 API 和组件写法，还有深层次的组件运行方式以及开发思想的变化。我们使用 React Hooks 开发除了要学习全新的 API 以外，最好有更深层次的理解，这样才能更好地应对开发中可能遇到的各种组件问题。
