@@ -29,6 +29,8 @@ git clone -o <remote name> <仓库>
 git init
 ```
 
+<!-- more -->
+
 ## 检查历史和状态
 
 ### log
