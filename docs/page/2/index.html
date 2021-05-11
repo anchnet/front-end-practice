@@ -6,20 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>技术分享之Git撤销提交 | 安畅前端实践</title>
+  <title>安畅前端实践</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分享者：小打、何鑫辉 起因本次分享属于临时起意，当天小辉哥花了半天时间追查一个 Bug，最后发现问题原因是某次需要撤销的代码提交没有被正确撤销。这类 Git 操作问题在团队中时常出现，不经意间的失误往往会带来难以定位的 Bug，降低软件质量。我们决定临时发起一次关于 Git 的技术分享，趁热打铁提醒所有的同学。 撤销提交Git 有两个命令可以用来撤销&#x2F;回滚代码，分别是 Reset 和 Revert">
-<meta property="og:type" content="article">
-<meta property="og:title" content="技术分享之Git撤销提交">
-<meta property="og:url" content="http://yoursite.com/2021/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%B9%8BGit%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="安畅前端实践">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="安畅前端实践">
-<meta property="og:description" content="分享者：小打、何鑫辉 起因本次分享属于临时起意，当天小辉哥花了半天时间追查一个 Bug，最后发现问题原因是某次需要撤销的代码提交没有被正确撤销。这类 Git 操作问题在团队中时常出现，不经意间的失误往往会带来难以定位的 Bug，降低软件质量。我们决定临时发起一次关于 Git 的技术分享，趁热打铁提醒所有的同学。 撤销提交Git 有两个命令可以用来撤销&#x2F;回滚代码，分别是 Reset 和 Revert">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-07T02:42:14.313Z">
 <meta property="article:author" content="安畅前端实践">
-<meta property="article:tag" content="技术分享">
-<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="安畅前端实践" type="application/atom+xml">
@@ -134,31 +128,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术分享之Git撤销提交" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-前端代码规范及操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      技术分享之Git撤销提交
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">前端代码规范及操作指南</a>
     </h1>
   
 
         
-        <a href="/2021/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%B9%8BGit%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/" class="archive-article-date">
-  	<time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-06</time>
+        <a href="/2020/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2020-01-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>分享者：小打、何鑫辉</p>
-<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>本次分享属于临时起意，当天小辉哥花了半天时间追查一个 Bug，最后发现问题原因是某次需要撤销的代码提交没有被正确撤销。这类 Git 操作问题在团队中时常出现，不经意间的失误往往会带来难以定位的 Bug，降低软件质量。我们决定临时发起一次关于 Git 的技术分享，趁热打铁提醒所有的同学。</p>
-<h2 id="撤销提交"><a href="#撤销提交" class="headerlink" title="撤销提交"></a>撤销提交</h2><p>Git 有两个命令可以用来撤销/回滚代码，分别是 Reset 和 Revert，可结合当前项目分支情况选择适用的命令。这两个命令最大的区别是：Reset 通过 <strong>抹去</strong> 原有的提交记录达到代码回滚的目的，可能造成本地分支 <strong>落后</strong> 远程分支的结果；Revert 通过 <strong>新增</strong> 与原有提交记录代码改动完全相反的代码提交以达到代码撤销的目的，操作完成后本地分支会 <strong>领先</strong> 远程分支。因此，使用 Revert 撤销代码后可以顺利地推送到远程，而 Reset 回滚后会因为落后于远程而无法推送。这时只能通过 push -f 强推，而这个命令有相当的风险，非常不建议在多人协作的项目中进行使用。</p>
-<h2 id="命令行-vs-工具"><a href="#命令行-vs-工具" class="headerlink" title="命令行 vs 工具"></a>命令行 vs 工具</h2><p>相当部分同学喜欢或习惯于使用工具进行 Git 操作，但我个人认为，命令行操作才是最重要、最可靠的。当我们使用工具进行 Git 操作时，工具只是代替我们执行需要的 Git 命令，但其实我们无法确认工具执行的具体命令是什么、是否 <strong>准确地</strong> 完成我们想要的操作，是否会带来额外的副作用。假如有同学使用工具进行 Git 操作但不止一次出现问题、并且自己都无法弄清原因的，我作为团队主管将 <strong>强制</strong> 要求未来不准再使用工具，必须使用命令行。</p>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>多位同学在本次技术分享的讨论时间分享了过去项目中的 Git 使用经验以及遇到的问题，也提了不少建设性意见，比如分支名及操作流程的规范等，在此就不一一列举了。希望在以后的开发过程中，大家，特别是同一个项目组的前端同学之间有更多的交流沟通，并能够将好的 Git 操作实践在实际项目中落地。</p>
+        <p><strong><em>Post by 小打</em></strong></p>
+<h2 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML/CSS"></a>HTML/CSS</h2><ol>
+<li><a href="https://codeguide.bootcss.com/" target="_blank" rel="noopener">编码规范 by @mdo</a></li>
+</ol>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ol>
+<li><a href="https://standardjs.com/rules-zhcn.html" target="_blank" rel="noopener">JavaScript Standard Style</a></li>
+<li><a href="https://github.com/lin-123/javascript" target="_blank" rel="noopener">Airbnb JavaScript Style Guide</a></li>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门</a></li>
+<li><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/" target="_blank" rel="noopener">JavaScript 秘密花园</a></li>
+</ol>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><ol>
+<li><a href="https://cn.vuejs.org/v2/style-guide/index.html" target="_blank" rel="noopener">官方风格指南</a></li>
+<li><a href="https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-CN.md" target="_blank" rel="noopener">Vue.js 组件编码规范</a></li>
+</ol>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ol>
+<li><a href="https://github.com/JasonBoy/javascript/tree/master/react" target="_blank" rel="noopener">Airbnb React/JSX 编码规范</a></li>
+</ol>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ol>
+<li><a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git使用简易指南</a></li>
+<li><a href="https://github.com/521xueweihan/git-tips" target="_blank" rel="noopener">git-tips</a></li>
+</ol>
 
       
 
@@ -172,11 +184,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码规范</a>
         		</li>
       		
 		</ul>
@@ -185,84 +193,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%B9%8BGit%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git常用命令汇总
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E4%B9%8BVue2-x%E6%95%B0%E6%8D%AE%E6%8B%A6%E6%88%AA%E6%BA%90%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">技术分享之Vue2.x数据拦截源码</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -282,14 +222,12 @@
 
 
 
-  
 
   
-
   
-
-  
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -312,8 +250,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
